@@ -1,0 +1,41 @@
+[33mcommit 45dc9a1d92fa0a633bd0921ac10e153aef43e7c4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: gustavorodriDEV <gustavorodriguesoliveira012@gmail.com>
+Date:   Fri Jul 12 17:55:06 2024 -0300
+
+    findById implementation
+
+[33mcommit e6fd9bfc94ff44e10b67c76ed3d8a3da5e437e4d[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: gustavorodriDEV <gustavorodriguesoliveira012@gmail.com>
+Date:   Fri Jul 12 01:07:16 2024 -0300
+
+    SellerDaoJDBC and DaoFactory
+
+[33mcommit 5cda64331e28f610754e11bcfe91556e40de0c77[m
+Author: gustavorodriDEV <gustavorodriguesoliveira012@gmail.com>
+Date:   Fri Jul 12 00:48:03 2024 -0300
+
+    DepartmentDao and SellerDAo interfaces
+
+[33mcommit 535526b03434730efc4e37c848d8121f0e02a7b7[m
+Author: gustavorodriDEV <gustavorodriguesoliveira012@gmail.com>
+Date:   Fri Jul 12 00:15:23 2024 -0300
+
+    Seller entity class
+
+[33mcommit 3ab184e57f6a6daf8ed7eedb4b16d8c52fa9c5d4[m
+Author: gustavorodriDEV <gustavorodriguesoliveira012@gmail.com>
+Date:   Thu Jul 11 23:46:14 2024 -0300
+
+    Department entity class
+
+[33mcommit b9880fcea6f08fa2650ce2108578983f5db97cb8[m
+Author: gustavorodriDEV <gustavorodriguesoliveira012@gmail.com>
+Date:   Thu Jul 11 23:28:03 2024 -0300
+
+    Creating project and git repository
+
+[33mcommit 675de83c8eb00e06bb4e67af5abc447a75b8eccf[m
+Author: Gustavo Rodrigues Oliveira <130366799+gustavorodriDEV@users.noreply.github.com>
+Date:   Thu Jul 11 23:07:39 2024 -0300
+
+    Initial commit
