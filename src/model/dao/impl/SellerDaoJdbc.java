@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import db.DB;
 import db.DbException;
@@ -44,8 +47,9 @@ public class SellerDaoJdbc implements SellerDao {
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
-					"SELECT seller.*,department.Name as DepName\r\n" + "FROM seller INNER JOIN department\r\n"
-							+ "ON seller.DepartmentId = department.Id\r\n" + "WHERE seller.Id = ?");
+					"SELECT seller.*,department.Name as DepName\r\n FROM seller INNER JOIN department\r\n"
+							+ "ON seller.DepartmentId = department.Id\r\n WHERE seller.Id = ?");
+
 			st.setInt(1, id);
 			rs = st.executeQuery();
 
@@ -86,6 +90,40 @@ public class SellerDaoJdbc implements SellerDao {
 	public List<Seller> findAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Seller> findByDepartment(Department department) {
+	    PreparedStatement st = null;
+	    ResultSet rs = null;
+	    try {
+	        st = conn.prepareStatement("SELECT seller.*, department.Name as DepName "
+	                + "FROM seller INNER JOIN department ON seller.DepartmentId = department.Id "
+	                + "WHERE seller.DepartmentId = ? ORDER BY Name");
+
+	        st.setInt(1, department.getId());
+	        rs = st.executeQuery();
+
+	        List<Seller> list = new ArrayList<>();
+	        Map<Integer, Department> map = new HashMap<>();
+
+	        while (rs.next()) {
+	            int depId = rs.getInt("DepartmentId");
+	            Department dep = map.get(depId);
+	            if (dep == null) {
+	                dep = InstatiateDepartment(rs);
+	                map.put(depId, dep);
+	            }
+	            Seller obj = InstatiateSeller(rs, dep);
+	            list.add(obj);
+	        }
+	        return list;
+	    } catch (SQLException e) {
+	        throw new DbException(e.getMessage());
+	    } finally {
+	        DB.closeStatement(st);
+	        DB.closeResultSet(rs);
+	    }
 	}
 
 }
